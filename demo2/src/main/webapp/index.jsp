@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>StayFinder</title>
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+/>
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+  <body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+      <div class="container py-1">
+        <a class="navbar-brand fw-bold" href="index.jsp">
+          <i class="bi bi-house-heart-fill me-1" style="color: var(--brand)"></i>
+          Stay<span>Finder</span>
+        </button>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+          aria-controls="nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+          <div class="ms-auto d-flex gap-2 align-items-center">
+          
+            <a class="btn btn-outline-secondary btn-sm" 
+            href="host-dashboard.jsp"�values="{$hostBtn}" }>Become a host</a>�
+            <button class="btn btn-outline-secondary btn-sm" type="button" title="Language">
+              <i class="bi bi-globe2"></i>
+            </button>
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-list me-1"></i><i class="bi bi-person-circle"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="signup.html">Sign up</a></li>
+                <li><a class="dropdown-item" href="login.html">Log in</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="trips.html">Trips</a></li>
+                <li><a class="dropdown-item" href="wishlist.html">Wishlist</a></li>
+                <li><a class="dropdown-item" href="signup.html">Account</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <span class="badge badge-soft rounded-pill mb-3">New • Weekend deals</span>
+            <h1 class="display-5 fw-bold mb-3">
+              Find your next stay anywhere.
+            </h1>
+            <p class="lead text-white-50 mb-4">
+              Browse unique homes, cabins, and experiences. Search by city, save favorites, and book demo stays in minutes.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+              <a class="btn btn-brand btn-lg" href="listings.html">
+                Explore stays <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <a class="btn btn-outline-light btn-lg" href="listings.html">
+                See stays
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card search-card shadow-lg rounded-4">
+              <div class="card-body p-4">
+                <h5 class="fw-semibold mb-3">Search</h5>
+
+                <div class="row g-2">
+                  <div class="col-12">
+                    <label class="form-label text-white-50 small mb-1">Where</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-white border-secondary">
+                        <i class="bi bi-geo-alt"></i>
+                      </span>
+                      <input
+                        id="homeDestination" class="form-control bg-transparent text-white border-secondary"
+                        placeholder="Search destinations"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50 small mb-1">Check in</label>
+                    <input id="homeCheckIn" class="form-control bg-transparent text-white border-secondary" type="date" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50 small mb-1">Check out</label>
+                    <input id="homeCheckOut" class="form-control bg-transparent text-white border-secondary" type="date" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label text-white-50 small mb-1">Guests</label>
+                    <select id="homeGuests" class="form-select bg-transparent text-white border-secondary">
+                      <option>1 guest</option>
+                      <option>2 guests</option>
+                      <option>3 guests</option>
+                      <option>4 guests</option>
+                      <option>5+ guests</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6 d-grid align-items-end">
+                    <button id="homeSearchButton" class="btn btn-brand mt-4" type="button">
+                      <i class="bi bi-search me-1"></i> Search
+                    </button>
+                  </div>
+                </div>
+
+                <div class="mt-3 d-flex gap-2 flex-wrap">
+                  <span class="badge text-bg-light">
+                    <i class="bi bi-shield-check me-1"></i> Verified hosts
+                  </span>
+                  <span class="badge text-bg-light">
+                    <i class="bi bi-lightning-charge me-1"></i> Instant book
+                  </span>
+                  <span class="badge text-bg-light">
+                    <i class="bi bi-stars me-1"></i> Top rated
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sticky-search">
+      <div class="container py-3">
+        <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn category-chip rounded-pill px-3 py-2" data-category="Homes">
+              <i class="bi bi-house-door me-1"></i> Homes
+            </button>
+            <button class="btn category-chip rounded-pill px-3 py-2" data-category="Cabins">
+              <i class="bi bi-tree me-1"></i> Cabins
+            </button>
+            <button class="btn category-chip rounded-pill px-3 py-2" data-category="Beach">
+              <i class="bi bi-water me-1"></i> Beach
+            </button>
+            <button class="btn category-chip rounded-pill px-3 py-2" data-category="Ski">
+              <i class="bi bi-snow2 me-1"></i> Ski
+            </button>
+            <button class="btn category-chip rounded-pill px-3 py-2" data-category="City">
+              <i class="bi bi-building me-1"></i> City
+            </button>
+            <button class="btn category-chip rounded-pill px-3 py-2" data-category="Luxe">
+              <i class="bi bi-gem me-1"></i> Luxe
+            </button>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary">
+              <i class="bi bi-sliders me-1"></i> Filters
+            </button>
+            <button class="btn btn-outline-secondary">
+              <i class="bi bi-map me-1"></i> Show map
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="container py-4">
+      <div class="d-flex align-items-end justify-content-between mb-3">
+        <div>
+          <h2 class="h4 fw-bold mb-1">Popular stays</h2>
+          <p class="text-secondary mb-0">Handpicked homes for weekends, work trips, and city escapes.</p>
+        </div>
+        <a class="link-secondary text-decoration-none" href="listings.html">
+          View all <i class="bi bi-chevron-right"></i>
+        </a>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="card listing-card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+            <div class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
+                class="w-100"
+                alt="Cozy loft"
+              />
+              <button class="btn btn-light btn-sm position-absolute top-0 end-0 m-2 rounded-circle save-listing-btn" type="button" title="Save" data-listing-id="cozy-loft-downtown" data-title="Cozy Loft • Downtown" data-city="Denver" data-state="CO" data-price="129" data-rating="4.92" data-image="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" data-subtitle="2 beds • 1 bath • Wifi • Kitchen">
+                <i class="bi bi-heart"></i>
+              </button>
+              <span class="badge text-bg-light position-absolute bottom-0 start-0 m-2">SUPERHOST</span>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title mb-1">Cozy Loft • Downtown</h5>
+                <div class="small">
+                  <i class="bi bi-star-fill star me-1"></i> 4.92
+                </div>
+              </div>
+              <p class="text-secondary small mb-2">2 beds • 1 bath • Wifi • Kitchen</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="fw-semibold">$129</span>
+                  <span class="text-secondary small"> / night</span>
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" href="details.html?id=cozy-loft-downtown">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="card listing-card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+            <div class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80"
+                class="w-100"
+                alt="Cabin"
+              />
+              <button class="btn btn-light btn-sm position-absolute top-0 end-0 m-2 rounded-circle save-listing-btn" type="button" title="Save" data-listing-id="pine-cabin-hot-tub" data-title="Pine Cabin • Hot Tub" data-city="Aspen" data-state="CO" data-price="199" data-rating="4.85" data-image="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" data-subtitle="3 beds • 2 baths • Fireplace">
+                <i class="bi bi-heart"></i>
+              </button>
+              <span class="badge text-bg-light position-absolute bottom-0 start-0 m-2">RARE FIND</span>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title mb-1">Pine Cabin • Hot Tub</h5>
+                <div class="small">
+                  <i class="bi bi-star-fill star me-1"></i> 4.85
+                </div>
+              </div>
+              <p class="text-secondary small mb-2">3 beds • 2 baths • Fireplace</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="fw-semibold">$199</span>
+                  <span class="text-secondary small"> / night</span>
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" href="details.html?id=pine-cabin-hot-tub">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="card listing-card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+            <div class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
+                class="w-100"
+                alt="Modern apartment"
+              />
+              <button class="btn btn-light btn-sm position-absolute top-0 end-0 m-2 rounded-circle save-listing-btn" type="button" title="Save" data-listing-id="modern-apt-skyline" data-title="Modern Apt • Skyline" data-city="Seattle" data-state="WA" data-price="149" data-rating="4.77" data-image="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" data-subtitle="1 bed • 1 bath • Gym • Pool">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title mb-1">Modern Apt • Skyline</h5>
+                <div class="small">
+                  <i class="bi bi-star-fill star me-1"></i> 4.77
+                </div>
+              </div>
+              <p class="text-secondary small mb-2">1 bed • 1 bath • Gym • Pool</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="fw-semibold">$149</span>
+                  <span class="text-secondary small"> / night</span>
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" href="details.html?id=modern-apt-skyline">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="card listing-card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+            <div class="position-relative">
+              <img
+                src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
+                class="w-100"
+                alt="Beach house"
+              />
+              <button class="btn btn-light btn-sm position-absolute top-0 end-0 m-2 rounded-circle save-listing-btn" type="button" title="Save" data-listing-id="beach-house-sunset" data-title="Beach House • Sunset" data-city="Malibu" data-state="CA" data-price="289" data-rating="4.95" data-image="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" data-subtitle="4 beds • 3 baths • Beachfront">
+                <i class="bi bi-heart"></i>
+              </button>
+              <span class="badge text-bg-light position-absolute bottom-0 start-0 m-2">OCEAN VIEW</span>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title mb-1">Beach House • Sunset</h5>
+                <div class="small">
+                  <i class="bi bi-star-fill star me-1"></i> 4.95
+                </div>
+              </div>
+              <p class="text-secondary small mb-2">4 beds • 3 baths • Beachfront</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="fw-semibold">$289</span>
+                  <span class="text-secondary small"> / night</span>
+                </div>
+                <a class="btn btn-outline-secondary btn-sm" href="details.html?id=beach-house-sunset">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card border-0 shadow-sm rounded-4 mt-5 overflow-hidden">
+        <div class="card-body p-4 p-lg-5">
+          <div class="row align-items-center g-3">
+            <div class="col-lg-8">
+              <h3 class="fw-bold mb-2">Ready to make it real?</h3>
+              <p class="text-secondary mb-0">
+                Browse listings, open property details, and use the auth pages to explore the full demo flow.
+              </p>
+            </div>
+            <div class="col-lg-4 d-grid d-lg-flex justify-content-lg-end gap-2">
+              <a class="btn btn-brand btn-lg" href="listings.html">Browse listings</a>
+              <a class="btn btn-outline-secondary btn-lg" href="signup.html">Create account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-top bg-white mt-5">
+      <div class="container py-4">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="fw-bold mb-2">StayFinder</div>
+            <p class="text-secondary small mb-0">
+              A responsive booking demo for discovering stays, saving favorites, and planning trips.
+            </p>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="fw-semibold mb-2">Support</div>
+            <ul class="list-unstyled small mb-0">
+              <li><a class="link-secondary text-decoration-none" href="#" href="login.html">Help Center</a></li>
+              <li><a class="link-secondary text-decoration-none" href="#" href="details.html">Safety</a></li>
+              <li><a class="link-secondary text-decoration-none" href="#" href="details.html">Cancellation</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="fw-semibold mb-2">Hosting</div>
+            <ul class="list-unstyled small mb-0">
+              <li><a class="link-secondary text-decoration-none" href="#" href="host-dashboard.html">Try hosting</a></li>
+              <li><a class="link-secondary text-decoration-none" href="#" href="host-dashboard.html">Resources</a></li>
+              <li><a class="link-secondary text-decoration-none" href="#" href="host-dashboard.html">Community</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="fw-semibold mb-2">Company</div>
+            <ul class="list-unstyled small mb-0">
+              <li><a class="link-secondary text-decoration-none" href="#" href="index.html">About</a></li>
+              <li><a class="link-secondary text-decoration-none" href="#" href="index.html">Careers</a></li>
+              <li><a class="link-secondary text-decoration-none" href="#" href="index.html">News</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="fw-semibold mb-2">Follow</div>
+            <div class="d-flex gap-2">
+              <a class="btn btn-outline-secondary btn-sm" href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a class="btn btn-outline-secondary btn-sm" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a class="btn btn-outline-secondary btn-sm" href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center small text-secondary">
+          <div>© <span id="year"></span> StayFinder. All rights reserved.</div>
+          <div class="d-flex gap-3">
+            <a class="link-secondary text-decoration-none" href="#" href="signup.html">Privacy</a>
+            <a class="link-secondary text-decoration-none" href="#" href="signup.html">Terms</a>
+            <a class="link-secondary text-decoration-none" href="#" href="listings.html">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+  </body>
+</html>
